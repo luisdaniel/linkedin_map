@@ -13,18 +13,19 @@ import oauth2 as oauth
 import urlparse
 import simplejson
 import codecs
+import os.path
 
-CONSUMER_KEY = "759mv2ozvw9evt"
-CONSUMER_SECRET = "1WBheLEZHN5ICX4c"
-OAUTH_TOKEN = "a4c2683a-274a-4f3f-a3a8-014444d536a9"
-OAUTH_TOKEN_SECRET = "2264f615-2d3c-42aa-9c0e-f52962b21e49"
+consumer_key = os.environ.get('CONSUMER_KEY')
+consumer_secret = os.environ.get('CONSUMER_SECRET')
+oauth_token = os.environ.get('OAUTH_TOKEN')
+oauth_token_secret = os.environ.get('OAUTH_TOKEN_SECRET')
 
 OUTPUT = "linked.csv"
 
 def linkedin_connections():
     # Use your credentials to build the oauth client
-    consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
-    token = oauth.Token(key=OAUTH_TOKEN, secret=OAUTH_TOKEN_SECRET)
+    consumer = oauth.Consumer(key=consumer_key, secret=consumer_secret)
+    token = oauth.Token(key=oauth_token, secret=oauth_token_secret)
     client = oauth.Client(consumer, token)
     # Fetch first degree connections
     resp, content = client.request('http://api.linkedin.com/v1/people/~/connections?format=json')
