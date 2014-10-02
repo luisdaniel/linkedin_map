@@ -14,11 +14,12 @@ import urlparse
 import simplejson
 import codecs
 import os.path
+from config_varbs import *
 
-consumer_key = os.environ.get('CONSUMER_KEY')
-consumer_secret = os.environ.get('CONSUMER_SECRET')
-oauth_token = os.environ.get('OAUTH_TOKEN')
-oauth_token_secret = os.environ.get('OAUTH_TOKEN_SECRET')
+consumer_key = CONSUMER_KEY
+consumer_secret = CONSUMER_SECRET
+oauth_token = OAUTH_TOKEN
+oauth_token_secret = OAUTH_TOKEN_SECRET
 
 OUTPUT = "linked.csv"
 

@@ -13,10 +13,10 @@ http://developer.linkedin.com/documents/authentication
 
 import oauth2 as oauth
 import urlparse
-import os.path
+from config_varbs import *
 
-consumer_key = os.environ.get('CONSUMER_KEY')
-consumer_secret = os.environ.get('CONSUMER_SECRET')
+consumer_key = CONSUMER_KEY
+consumer_secret = CONSUMER_SECRET
 
 
 class LinkedIn(object):
